@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WaySecurity</title>
+  <link rel="stylesheet" href="inicio.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#topo">WaySec</a>
+
+      <!-- checkbox hack -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="burger" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#equipe">Equipe</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="topo" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <h1>WaySecurity</h1>
+      <p>Assegurando a sua segurança</p>
+      <a href="#contato" class="btn btn-light">Fale Conosco</a>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="sobre" class="section">
+    <div class="container">
+      <h2 class="section-title">Sobre Nós</h2>
+      <p class="section-text">
+        A Way Security é uma empresa especializada em segurança e organização para escolas, oferecendo soluções
+        inovadoras para manter o ambiente escolar seguro, organizado e acolhedor para alunos,
+        professores e colaboradores. 
+      </p>
+      <p class="section-text"> Nós buscamos oferecer um serviço de alta qualidade para as nossas empresas parceiras, as quais podem contar 
+        com nossa disponibilidade 24 horas diariamente. Desde o início de nossos serviços somos sinônimo de integridade, segurança e inovação dentro do ambiente escolar </p>
+    </div>
+  </section>
+
+  <!-- Nossa Equipe -->
+  <section id="equipe" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Nossa Equipe</h2>
+
+      <div class="grid-4 g-4">
+        <!-- Card 1 -->
+        <article class="card team-card">
+          <img src="integrantes/ceo1.jpg" alt="Integrante 1" class="avatar" />
+          <div class="card-body">
+            <h3 class="card-title">João Alves</h3>
+            <p class="card-text">Ceo</p>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card team-card">
+          <img src="integrantes/desenvolvedorweb2.jpg" alt="Integrante 2" class="avatar" />
+          <div class="card-body">
+            <h3 class="card-title">Emmanuel Severiano</h3>
+            <p class="card-text">Desenvolvedor de software</p>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card team-card">
+          <img src="integrantes/socialmidia3.jpg" alt="Integrante 3" class="avatar" />
+          <div class="card-body">
+            <h3 class="card-title">Thiago Tavares</h3>
+            <p class="card-text">Social Midia</p>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card team-card">
+          <img src="integrantes/bancodedados4.jpg" alt="Integrante 4" class="avatar" />
+          <div class="card-body">
+            <h3 class="card-title">Yago Ferro</h3>
+            <p class="card-text">Analista de dados</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos" class="section">
+    <div class="container">
+      <h2 class="section-title">Nossos Serviços</h2>
+
+      <div class="grid-3 g-4">
+        <!-- Serviço 1 -->
+        <article class="card service-card">
+          <div class="icon">
+            <!-- Shield Lock (SVG) -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2l7 3v6c0 5-3.4 9.7-7 11-3.6-1.3-7-6-7-11V5l7-3zM10 12v2a2 2 0 104 0v-2h-4zM9 9h6v2H9z"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Monitoramento</h3>
+          <p class="card-text">Câmeras e vigilância ativa para garantir a proteção de todos.</p>
+        </article>
+
+        <!-- Serviço 2 -->
+        <article class="card service-card">
+          <div class="icon">
+            <!-- Organized list (SVG) -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 6h2v2H3V6zm5 0h13v2H8V6zM3 11h2v2H3v-2zm5 0h13v2H8v-2zM3 16h2v2H3v-2zm5 0h13v2H8v-2z"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Organização</h3>
+          <p class="card-text">Planejamento e rotinas para manter ambientes funcionais.</p>
+        </article>
+
+        <!-- Serviço 3 -->
+        <article class="card service-card">
+          <div class="icon">
+            <!-- People/Training (SVG) -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 12a3 3 0 100-6 3 3 0 000 6zm-7 8a7 7 0 0114 0H5zm13-10a2 2 0 110-4 2 2 0 010 4zm1 2c1.657 0 3 1.79 3 4h-2c0-1.105-.672-2-1-2s-1 .895-1 2h-2c0-2.21 1.343-4 3-4zM4 10a2 2 0 110-4 2 2 0 010 4zm-1 2c-1.657 0-3 1.79-3 4h2c0-1.105.672-2 1-2s1 .895 1 2h2c0-2.21-1.343-4-3-4z"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Treinamentos</h3>
+          <p class="card-text">Capacitação em segurança e boas práticas para a equipe.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Entre em Contato</h2>
+
+  <article class="card service-card">
+          <div class="icon">
+            <!-- People/Training (SVG) -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 12a3 3 0 100-6 3 3 0 000 6zm-7 8a7 7 0 0114 0H5zm13-10a2 2 0 110-4 2 2 0 010 4zm1 2c1.657 0 3 1.79 3 4h-2c0-1.105-.672-2-1-2s-1 .895-1 2h-2c0-2.21 1.343-4 3-4zM4 10a2 2 0 110-4 2 2 0 010 4zm-1 2c-1.657 0-3 1.79-3 4h2c0-1.105.672-2 1-2s1 .895 1 2h2c0-2.21-1.343-4-3-4z"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Instagram</h3>
+          <a href="https://www.instagram.com/waysec_/"
+            class="btn btn-primary"
+            >@waysec_
+        </a>
+        </article>
+        
+          <article class="card service-card">
+          <div class="icon">
+            <!-- People/Training (SVG) -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 12a3 3 0 100-6 3 3 0 000 6zm-7 8a7 7 0 0114 0H5zm13-10a2 2 0 110-4 2 2 0 010 4zm1 2c1.657 0 3 1.79 3 4h-2c0-1.105-.672-2-1-2s-1 .895-1 2h-2c0-2.21 1.343-4 3-4zM4 10a2 2 0 110-4 2 2 0 010 4zm-1 2c-1.657 0-3 1.79-3 4h2c0-1.105.672-2 1-2s1 .895 1 2h2c0-2.21-1.343-4-3-4z"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Gmail</h3>
+        <a
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=waysectcc@gmail.com&su=Contato%20pelo%20site&body=Ol%C3%A1%20WaySec,%0D%0AQuero%20saber%20sobre..."
+  target="_blank" rel="noopener noreferrer"
+  class="btn btn-primary"
+>
+  Escrever no Gmail
+</a>
+
+         </article>
+
+     
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Way Security. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+/* ====== Variáveis e Reset ====== */
+:root{
+  --azul:#0d7cc4;
+  --azul-escuro:#00a8e1;
+  --preto:#000;
+  --branco:#fff;
+  --cinza-100:#f6f7fb;
+  --cinza-200:#eef0f6;
+  --cinza-600:#5a6073;
+  --radius:16px;
+  --shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
+  color:#1b1e28;
+  background:#fff;
+}
+
+/* ====== Helpers ====== */
+.container{
+  width:min(1120px, 92vw);
+  margin-inline:auto;
+}
+.section{padding:64px 0}
+.section-alt{background:var(--cinza-100)}
+.section-title{
+  margin:0 0 16px;
+  font-size:clamp(1.6rem, 2.5vw, 2.1rem);
+  text-align:center;
+}
+.section-text{
+  max-width:800px;
+  margin:0 auto;
+  text-align:center;
+  color:var(--cinza-600);
+}
+
+/* ====== Navbar ====== */
+.navbar{
+  position:sticky; top:0; z-index:10;
+  background:var(--azul);
+  color:var(--branco);
+  box-shadow:0 4px 10px rgba(0,0,0,.12);
+}
+.nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+.brand{color:var(--branco); text-decoration:none; font-weight:700; letter-spacing:.2px}
+
+.nav-links{display:flex; gap:24px}
+.nav-links a{
+  color:var(--branco); text-decoration:none; opacity:.95;
+}
+.nav-links a:hover{opacity:1; text-decoration:underline}
+
+/* mobile menu (checkbox hack) */
+.nav-toggle{display:none}
+.burger{
+  display:none; width:28px; height:22px; cursor:pointer;
+}
+.burger span{
+  display:block; height:3px; background:#fff; border-radius:2px; margin:4px 0;
+  transition:transform .3s ease, opacity .3s ease;
+}
+
+/* ====== Hero ====== */
+.hero{
+  position:relative;
+  min-height:60vh;
+  display:grid; place-items:center;
+  color:var(--branco);
+  background:
+    url('https://empresasminister.com.br/wp-content/uploads/2018/05/tiposdecameradeseguranca.jpeg')
+    center/cover no-repeat;
+}
+.hero-overlay{
+  position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.35));
+}
+.hero-content{
+  position:relative; text-align:center; padding:40px 0;
+}
+.hero h1{margin:0 0 8px; font-size:clamp(1.9rem, 4vw, 3rem)}
+.hero p{margin:0 0 20px; font-size:clamp(1rem, 2vw, 1.25rem); opacity:.95}
+
+/* ====== Buttons ====== */
+.btn{
+  display:inline-block; padding:12px 22px; border-radius:999px;
+  text-decoration:none; font-weight:600; transition:transform .15s ease, box-shadow .15s ease, background .2s;
+}
+.btn-light{background:var(--branco); color:var(--azul)}
+.btn-light:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
+.btn-primary{background:var(--azul); color:var(--branco); border:none; cursor:pointer}
+.btn-primary:hover{background:var(--azul-escuro); box-shadow:var(--shadow); transform:translateY(-1px)}
+
+/* ====== Grids ====== */
+.g-4{gap:24px}
+.grid-4{display:grid; grid-template-columns:repeat(4, 1fr)}
+.grid-3{display:grid; grid-template-columns:repeat(3, 1fr)}
+.grid-2{display:grid; grid-template-columns:repeat(2, 1fr)}
+
+/* ====== Cards ====== */
+.card{
+  background:#fff; border-radius:var(--radius); box-shadow:var(--shadow);
+  overflow:hidden; padding:18px; text-align:center;
+}
+.card-title{margin:8px 0 6px; font-size:1.05rem}
+.card-text{margin:0; color:var(--cinza-600)}
+
+/* Equipe */
+.team-card .avatar{
+  width:200px; height:200px; border-radius:50%;
+  object-fit:cover; display:block; margin:12px auto 8px;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.team-card .avatar:hover{
+  transform:scale(1.08);
+  box-shadow:0 10px 20px rgba(0,0,0,.25);
+}
+
+/* Serviços */
+.service-card .icon{
+  width:64px; height:64px; margin:6px auto 10px; display:grid; place-items:center;
+  border-radius:14px; background:rgba(10,74,168,.1);
+}
+.service-card .icon svg{
+  width:34px; height:34px; fill:var(--azul);
+}
+
+/* ====== Form & Mapa ====== */
+.form{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.form-field{display:flex; flex-direction:column; gap:8px}
+.form-field--full{grid-column:1 / -1}
+.form input, .form textarea{
+  padding:12px 14px; border:1px solid var(--cinza-200); border-radius:10px; font:inherit;
+  outline:none; transition:border .2s, box-shadow .2s;
+}
+.form input:focus, .form textarea:focus{
+  border-color:var(--azul); box-shadow:0 0 0 3px rgba(10,74,168,.15);
+}
+
+/* ====== Footer ====== */
+.footer{
+  background:#000; color:#fff; text-align:center; padding:18px 0; margin-top:8px;
+}
+.footer p{margin:0; opacity:.95}
+
+/* ====== Responsividade ====== */
+@media (max-width: 960px){
+  .grid-4{grid-template-columns:repeat(2, 1fr)}
+  .grid-3{grid-template-columns:repeat(2, 1fr)}
+  .form{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:1fr}
+}
+
+@media (max-width: 720px){
+  .grid-3{grid-template-columns:1fr}
+  .grid-4{grid-template-columns:1fr}
+  .nav-links{
+    position:absolute; inset-inline:0; top:56px;
+    background:var(--azul); display:flex; flex-direction:column; gap:0;
+    transform:translateY(-16px); opacity:0; pointer-events:none;
+    transition:opacity .25s ease;
+  }
+  .nav-links a{padding:14px 24px; border-top:1px solid rgba(255,255,255,.15)}
+  .burger{display:block}
+  .nav-toggle:checked ~ .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle:checked ~ .burger span:nth-child(2){opacity:0}
+  .nav-toggle:checked ~ .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav-toggle:checked ~ .nav-links{opacity:1; pointer-events:auto; transform:none}
+}
