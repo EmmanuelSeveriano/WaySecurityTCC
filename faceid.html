@@ -37,8 +37,22 @@
             <!-- Camera Section -->
             <div class="camera-section">
                 <div class="camera-container">
-                    <video id="video" autoplay muted></video>
-                    <canvas id="canvas" style="display: none;"></canvas>
+                    <!-- Camera Display Area -->
+                    <div class="camera-display">
+                        <div id="camera-placeholder" class="camera-placeholder">
+                            <svg viewBox="0 0 24 24" width="80" height="80">
+                                <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <p>Câmera não inicializada</p>
+                        </div>
+                        <video id="video" autoplay muted style="display: none;"></video>
+                        <canvas id="canvas" style="display: none;"></canvas>
+                    </div>
+                    
+                    <!-- Recognition Time Only -->
+                    <div id="recognition-time" class="recognition-time" style="display: none;">
+                        <strong>Horário do Reconhecimento:</strong> <span id="time-display"></span>
+                    </div>
                     
                     <!-- Camera Controls -->
                     <div class="camera-controls">
@@ -49,40 +63,13 @@
                             Inicializar Câmera
                         </button>
                         
-                        <button id="start-detection" class="btn btn-success" disabled>
-                            <svg viewBox="0 0 24 24" width="20" height="20">
-                                <path fill="currentColor" d="M8 5v14l11-7z"/>
-                            </svg>
-                            Iniciar Detecção
-                        </button>
-                        
-                        <button id="stop-detection" class="btn btn-warning" disabled>
-                            <svg viewBox="0 0 24 24" width="20" height="20">
-                                <path fill="currentColor" d="M6 6h12v12H6z"/>
-                            </svg>
-                            Parar Detecção
-                        </button>
-                        
-                        <button id="capture-photo" class="btn btn-info" disabled>
+                        <button id="capture-photo" class="btn btn-success" disabled>
                             <svg viewBox="0 0 24 24" width="20" height="20">
                                 <path fill="currentColor" d="M12 12m-3.2 0a3.2 3.2 0 1 0 6.4 0a3.2 3.2 0 1 0 -6.4 0"/>
                                 <path fill="currentColor" d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
                             </svg>
-                            Capturar Foto
+                            Capturar e Analisar
                         </button>
-                    </div>
-                </div>
-
-                <!-- Detection Info -->
-                <div class="detection-panel">
-                    <h3>Informações de Detecção</h3>
-                    <div id="detection-info" class="detection-info">
-                        <div class="detection-status not-detected">
-                            <strong>Status:</strong> Aguardando inicialização...
-                        </div>
-                        <div class="detection-confidence">
-                            <strong>Confiança:</strong> 0%
-                        </div>
                     </div>
                 </div>
             </div>
@@ -91,57 +78,17 @@
             <div class="results-section">
                 <!-- Captured Photo -->
                 <div id="captured-photo" class="result-panel" style="display: none;">
-                    <!-- Conteúdo será inserido via JavaScript -->
+                    <h3>Foto Capturada</h3>
+                    <div class="photo-container">
+                        <img id="photo-display" alt="Foto capturada" style="max-width: 100%; border-radius: 8px;">
+                    </div>
                 </div>
 
                 <!-- Analysis Results -->
                 <div id="analysis-results" class="result-panel" style="display: none;">
-                    <!-- Conteúdo será inserido via JavaScript -->
-                </div>
-            </div>
-
-            <!-- Features Section -->
-            <div class="features-section">
-                <h2>Recursos do Sistema</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" width="40" height="40">
-                                <path fill="currentColor" d="M12 2l7 3v6c0 5-3.4 9.7-7 11-3.6-1.3-7-6-7-11V5l7-3z"/>
-                            </svg>
-                        </div>
-                        <h3>Detecção em Tempo Real</h3>
-                        <p>Identificação instantânea de rostos com alta precisão</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" width="40" height="40">
-                                <path fill="currentColor" d="M12 12a3 3 0 100-6 3 3 0 000 6zm-7 8a7 7 0 0114 0H5z"/>
-                            </svg>
-                        </div>
-                        <h3>Reconhecimento Facial</h3>
-                        <p>Mapeamento de características faciais únicas</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" width="40" height="40">
-                                <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <h3>Análise de Emoções</h3>
-                        <p>Detecção de expressões faciais e estados emocionais</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" width="40" height="40">
-                                <path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <h3>Alta Confiança</h3>
-                        <p>Sistema com precisão superior a 95% de acurácia</p>
+                    <h3>Resultados da Análise</h3>
+                    <div id="analysis-content">
+                        <!-- Conteúdo será inserido via JavaScript -->
                     </div>
                 </div>
             </div>
@@ -149,36 +96,41 @@
             <!-- Instructions -->
             <div class="instructions-section">
                 <h2>Como Usar</h2>
-                <div class="instructions-list">
+                <div class="instructions-grid">
                     <div class="instruction-step">
-                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
                         <div class="step-content">
-                            <h4>Inicializar Câmera</h4>
-                            <p>Clique em "Inicializar Câmera" e permita o acesso à sua webcam</p>
+                            <h4>1. Inicializar Câmera</h4>
+                            <p>Clique no botão e permita o acesso à sua webcam</p>
                         </div>
                     </div>
                     
                     <div class="instruction-step">
-                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <path fill="currentColor" d="M12 12m-3.2 0a3.2 3.2 0 1 0 6.4 0a3.2 3.2 0 1 0 -6.4 0"/>
+                                <path fill="currentColor" d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+                            </svg>
+                        </div>
                         <div class="step-content">
-                            <h4>Iniciar Detecção</h4>
-                            <p>Clique em "Iniciar Detecção" para começar a detectar rostos em tempo real</p>
+                            <h4>2. Capturar e Analisar</h4>
+                            <p>Posicione seu rosto na câmera e clique para capturar</p>
                         </div>
                     </div>
                     
                     <div class="instruction-step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h4>Capturar Foto</h4>
-                            <p>Use "Capturar Foto" para tirar uma imagem para análise detalhada</p>
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
                         </div>
-                    </div>
-                    
-                    <div class="instruction-step">
-                        <div class="step-number">4</div>
                         <div class="step-content">
-                            <h4>Analisar Resultados</h4>
-                            <p>Clique em "Analisar Foto" para ver os resultados detalhados da detecção</p>
+                            <h4>3. Ver Resultados</h4>
+                            <p>Visualize a análise facial e o horário do reconhecimento</p>
                         </div>
                     </div>
                 </div>
@@ -196,3 +148,4 @@
     <script src="faceid.js"></script>
 </body>
 </html>
+
